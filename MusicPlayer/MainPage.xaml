@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="MusicPlayer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:MusicPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="1437.5" d:DesignHeight="903">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="100"/>
+    </Grid.RowDefinitions>
+    <NavigationView Grid.Row="0" x:Name="NavView" IsBackButtonVisible="Collapsed" IsPaneOpen="False">
+      <Frame x:Name="frNext">
+      </Frame>
+      <NavigationView.MenuItems >
+        <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
+        <NavigationViewItemSeparator/>
+        <NavigationViewItemHeader x:Name="MainPagesHeader"
+                                        Content="Setting"/>
+        <NavigationViewItem Tag="apps" Content="Top Zing">
+          <NavigationViewItem.Icon>
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC4F;"/>
+          </NavigationViewItem.Icon>
+        </NavigationViewItem>
+        <NavigationViewItem Tag="games" Content="Random music">
+          <NavigationViewItem.Icon>
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE142;"/>
+          </NavigationViewItem.Icon>
+        </NavigationViewItem>
+        <NavigationViewItem Tag="playgames" Content="Playing music">
+          <NavigationViewItem.Icon>
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7FC;"/>
+          </NavigationViewItem.Icon>
+        </NavigationViewItem>
+        <NavigationViewItem Tag="download" Content="Dowload mucsic">
+          <NavigationViewItem.Icon>
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE105;"/>
+          </NavigationViewItem.Icon>
+        </NavigationViewItem>
+      </NavigationView.MenuItems>
+
+      <NavigationView.AutoSuggestBox>
+        <AutoSuggestBox x:Name="NavViewSearchBox" QueryIcon="Find"/>
+      </NavigationView.AutoSuggestBox>
+    </NavigationView>
+
+    <MediaPlayerElement x:Name="musicControl" 
+                        Grid.Row="1" 
+                        AreTransportControlsEnabled="True" 
+                        KeyboardAcceleratorPlacementMode="Auto" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" >
+      <MediaPlayerElement.TransportControls>
+        <MediaTransportControls IsNextTrackButtonVisible="True" 
+                                         IsPlaybackRateButtonVisible="True" 
+                                         IsPlaybackRateEnabled="True"
+                                         IsRepeatButtonVisible="True"
+                                         IsPreviousTrackButtonVisible="True" 
+                                 />
+      </MediaPlayerElement.TransportControls>
+    </MediaPlayerElement>
+
+  </Grid>
+
+</Page>
